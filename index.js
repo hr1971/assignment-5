@@ -6,14 +6,27 @@ function getElement(id) {
 
 
 const heartButton = document.getElementsByClassName("heart-btn");
+
 const copyButton = document.getElementsByClassName("copy-btn");
+
+ 
 
 for(let copy of copyButton){
     copy.addEventListener('click',function (){
-        const quantity = getElement('copy-count').innerText;
 
-        const currentQuantity = Number (quantity) + 1;
-        getElement('copy-count').innerText= currentQuantity; 
+        const card = copy.closest('.card');
+        const number = card.querySelector('.number').innerText;
+
+        // const quantity = getElement('copy-count').innerText;
+
+         
+        const quantityElement = getElement('copy-count');
+
+        const quantity = Number (quantityElement.innerText) + 1;
+        quantityElement.innerText = quantity;
+
+        // getElement('copy-count').innerText= currentQuantity; 
+        alert(`The Number is copy: ${number} ...`);
     })
 }
 
